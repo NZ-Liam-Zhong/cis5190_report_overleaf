@@ -40,7 +40,7 @@
 }
 
 \begin{document}
-\head{Spring 2026}{Reading Between the Headlines: Detecting News Source Style with DeBERTa-V3}{Haoran Wu, Ningze Zhong, Yuzhou Shen \quad Group: ZSL}{Project B: News Source Classification}
+\head{Spring 2026}{Reading Between the Headlines: Detecting News Source Style with DeBERTa-V3}{Haoran Wu, Ningze Zhong, Yuzhou Shen \quad Group: 45}{Project B: News Source Classification}
 
 \section{Introduction}
 For Project B we built a binary classifier that, given an English news headline, decides whether it was published by \textbf{Fox News} or \textbf{NBC News}. The task is interesting because both outlets cover the same events from very different angles, so a useful classifier has to capture more than the topic itself: word choice, hedging and framing. We scraped 3{,}805 headlines from the two homepages, kept 3{,}783 unique ones after de-duplication, and then ran a ladder of seven traditional pipelines and seven transformer fine-tunes on the same stratified 80/20 split. The model we ended up submitting is a fine-tuned DeBERTa-V3-Base. On our 757-headline hold-out it reaches \textbf{86.53\%} accuracy, F1 \textbf{0.8774} and ROC-AUC \textbf{0.9448}, beating the provided TF-IDF + LR baseline (66.49\% accuracy) by \textbf{$+$20.04~pp} and the 3-epoch DistilBERT baseline (82.17\%) by \textbf{$+$4.36~pp}. On the course leaderboard we submitted under alias \textbf{ZSL} and currently sit at rank \textbf{13} with leaderboard accuracy \textbf{0.8533}. A top-3 soft-voting ensemble can squeeze out roughly $1.7$~pp more on our local hold-out, but it triples inference cost so we stuck with the single model.
@@ -158,8 +158,8 @@ Prefix ``Breaking:~''       & 0.795 & $-$0.065 & 0.115 \\
 \item \textbf{Yuzhou Shen} (data): headline scraping pipeline for \texttt{foxnews.com} and \texttt{nbcnews.com}, de-duplication and label normalisation, EDA (length distribution, vocabulary purity tables, train/test class balance checks).
 \end{itemize}
 
-\section{Extra Credit -- Video Demo (5\%)}
-We recorded a 10-minute walkthrough where each member presents their part of the project (data $\to$ models $\to$ exploratory analysis), following the required structure: \texttt{[YouTube / Drive link]}. The script is in \texttt{video\_script.md} in our submission package.
+% \section{Extra Credit -- Video Demo (5\%)}
+% We recorded a 10-minute walkthrough where each member presents their part of the project (data $\to$ models $\to$ exploratory analysis), following the required structure: \texttt{[YouTube / Drive link]}. The script is in \texttt{video\_script.md} in our submission package.
 
 \section{Limitations and Future Work}
 
