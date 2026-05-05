@@ -172,6 +172,6 @@ Two practical notes for the course team. The leaderboard hold-out is roughly 1.2
 \paragraph{Reproducibility.} Reproducing the headline numbers takes three steps. First, install the dependencies pinned in \texttt{requirements.txt} (\texttt{transformers}, \texttt{torch} with CUDA, \texttt{nltk} with the \texttt{stopwords} and \texttt{wordnet} corpora, \texttt{scikit-learn}, \texttt{pandas}). Second, drop the \texttt{saved\_models/best\_bert\_classifier/} checkpoint into the corresponding folder or pull it from the Hugging Face model repo and run \texttt{verify\_model.py}; the script applies the same lemmatised pre-processing the training notebooks use, regenerates the 80/20 split with \texttt{random\_state=42}, and prints accuracy~0.8653, F1~0.8774 and ROC-AUC~0.9448, which matches the saved metadata exactly. Third, for end-to-end leaderboard simulation, copy \texttt{model.py}, \texttt{preprocess.py}, \texttt{model.pt} and the \texttt{assets/} folder into a fresh directory and call the wrapper directly; we verified this produces the same 0.8653 on a 757-headline local hold-out at 5.2~ms per 32-headline batch on RTX 5090. All three steps are smoke-tested in the GitHub repo's CI script.
 
 \section*{Acknowledgements}
-We thank the CIS 5190 staff for the project resources, the Hugging Face team for the model and dataset hubs, and the Hugging Face Mirror service which kept the network round-trip from our compute environment workable.
+We thank the CIS 5190 for the project resources, the Hugging Face team for the model and dataset hubs.
 
 \end{document}
